@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Teste de 3 minutos: descubra quantos gestos da Missa você sabe explicar.">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1566800768130674');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1566800768130674&ev=PageView&noscript=1"
+alt="" /></noscript>
+<!-- End Meta Pixel Code -->
+<title>Teste dos 10 Gestos da Missa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Crimson+Pro:ital,wght@0,500;0,600;1,500&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: uma coluna estreita como folheto de celebração; cada etapa é uma "página" do missal */
+:root{
+  --bg:#FAF8F4; --paper:#FFFFFF; --fg:#2A1A1E; --muted:#6E5A5F; --line:#E7DED6;
+  --wine:#7A2233; --wine-soft:#F3E6E8; --gold:#B8861C; --gold-soft:#FBF1DC;
+  --ok:#2F6B45; --ok-soft:#E5F1E8; --bad:#9A2A2A; --bad-soft:#F7E4E4;
+  --display:"Crimson Pro",Georgia,"Times New Roman",serif;
+  --label:"Cinzel",Georgia,serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#1C1315; --paper:#271B1E; --fg:#F3ECE6; --muted:#BBA9AC; --line:#3D2D31;
+  --wine:#E0899A; --wine-soft:#3A2227; --gold:#E2B24A; --gold-soft:#3A2F18;
+  --ok:#7CC894; --ok-soft:#1E3326; --bad:#EE9090; --bad-soft:#3C2020; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1C1315; --paper:#271B1E; --fg:#F3ECE6; --muted:#BBA9AC; --line:#3D2D31;
+  --wine:#E0899A; --wine-soft:#3A2227; --gold:#E2B24A; --gold-soft:#3A2F18;
+  --ok:#7CC894; --ok-soft:#1E3326; --bad:#EE9090; --bad-soft:#3C2020; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 var(--body);padding:0 16px}
+.wrap{max-width:560px;margin:0 auto;padding-block:28px 64px;display:flex;flex-direction:column;gap:22px}
+.brand{display:flex;justify-content:space-between;align-items:center;font:600 11px/1 var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--wine)}
+.brand span:last-child{color:var(--muted)}
+.cross{width:14px;height:14px;display:inline-block;vertical-align:-2px;margin-right:6px}
+h1,h2,h3{font-family:var(--display);font-weight:600;text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(30px,8vw,40px)}
+h2{font-size:clamp(24px,6.4vw,30px)}
+h3{font-size:21px}
+p{margin:0}
+.lead{color:var(--muted);font-size:17px}
+.eyebrow{font:600 11px/1.2 var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.stack{display:flex;flex-direction:column;gap:12px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px}
+.opt{width:100%;text-align:left;font:500 16px/1.4 var(--body);color:var(--fg);background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;display:flex;gap:12px;align-items:flex-start;transition:border-color .15s,background .15s}
+.opt:hover:not(:disabled){border-color:var(--wine)}
+.opt:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.opt .k{font:600 13px/1.6 var(--label);color:var(--wine);min-width:14px}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt:disabled{cursor:default}
+.btn{display:block;width:100%;text-align:center;text-decoration:none;font:600 17px/1.3 var(--body);color:#fff;background:#7A2233;border:0;border-radius:12px;padding:16px 18px;cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--wine);border:1.5px solid var(--wine)}
+.progress{display:flex;gap:4px}
+.progress i{flex:1;height:4px;border-radius:2px;background:var(--line)}
+.progress i.on{background:var(--gold)}
+.meta{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.explain{border-left:3px solid var(--gold);background:var(--gold-soft);padding:14px 16px;border-radius:0 10px 10px 0}
+.explain b{display:block;margin-bottom:4px}
+.src{display:block;margin-top:8px;font-size:12px;color:var(--muted);letter-spacing:.02em}
+.score{display:flex;align-items:baseline;gap:10px;font-family:var(--display)}
+.score .n{font-size:84px;line-height:.9;color:var(--wine);font-variant-numeric:tabular-nums}
+.score .d{font-size:28px;color:var(--muted)}
+.review{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:14px}
+.review li{display:flex;gap:10px;align-items:baseline}
+.review .m{font-weight:700;min-width:16px}
+.review .y{color:var(--ok)} .review .x{color:var(--bad)}
+.divider{display:flex;align-items:center;gap:12px;color:var(--gold);font:600 11px var(--label);letter-spacing:.2em}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line)}
+.list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.list li{display:flex;gap:10px}
+.list li::before{content:"✠";color:var(--gold);font-size:13px;line-height:1.9}
+.price{text-align:center;display:flex;flex-direction:column;gap:6px}
+.price .v{font:600 46px/1 var(--display);color:var(--fg)}
+.price small{color:var(--muted);font-size:13px}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:460px){.twocol{grid-template-columns:1fr}}
+.mini{font-size:14px;color:var(--muted)}
+.mini strong{color:var(--fg);display:block;font-size:15px;margin-bottom:2px}
+.profiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:420px){.profiles{grid-template-columns:1fr}}
+.profiles .opt{justify-content:center;text-align:center}
+.opt.sel{border-color:var(--wine);background:var(--wine-soft)}
+.fine{font-size:12px;color:var(--muted);text-align:center}
+.fade{animation:in .35s ease both}
+@keyframes in{from{opacity:.001;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.fade{animation:none}}
+</style>
+
+</head>
+<body>
+<main class="wrap" id="app" aria-live="polite"></main>
+
+<script>
+/* ======= CONFIGURAÇÃO ======= */
+const CHECKOUT_URL = "https://pay.hotmart.com/D106939981L?checkoutMode=10";
+const PRECO = "R$ 47";
+const PARCELAS = "ou 5x de R$ 10,41 no cartão";
+
+/* Pixel da Meta: só dispara se o fbq já estiver instalado na página */
+function track(ev, data){ try{ if(window.fbq) fbq('track', ev, data||{}); }catch(e){} }
+
+const PERFIS = [
+  {id:"cat", label:"Sou catequista"},
+  {id:"pais", label:"Sou pai ou mãe"},
+  {id:"lit", label:"Sirvo na liturgia"},
+  {id:"fiel", label:"Participo da Missa"}
+];
+
+const Q = [
+ {q:"No começo da Missa, o padre beija o altar. Esse gesto significa:",
+  o:["Um pedido de licença ao bispo da diocese","Veneração, porque o altar é sinal do próprio Cristo","Um costume antigo, sem significado litúrgico","Um pedido de perdão pelos pecados da assembleia"],c:1,
+  e:"O altar é sinal de Cristo. Por isso o sacerdote o venera com um beijo na chegada e de novo na despedida.",s:"IGMR 49"},
+ {q:"No “Confesso a Deus”, os fiéis batem no peito. Esse gesto vem:",
+  o:["Da oração do publicano, que batia no peito arrependido","De uma regra criada no Concílio Vaticano II","Do costume de acordar a atenção antes das leituras","Da Quaresma, e fora dela deveria ser omitido"],c:0,
+  e:"É o gesto do publicano do Evangelho, que não ousava levantar os olhos e batia no peito pedindo misericórdia.",s:"Lc 18,13"},
+ {q:"Antes do Evangelho, todos fazem três pequenos sinais da cruz: na testa, nos lábios e no peito. É para pedir que a Palavra esteja:",
+  o:["Na memória, na família e na paróquia","No passado, no presente e no futuro","Na mente, nos lábios e no coração","Com o padre, com o diácono e com o povo"],c:2,
+  e:"O sinal na fronte, na boca e no peito pede que a Palavra seja compreendida, anunciada e guardada no coração.",s:"IGMR 134"},
+ {q:"Na preparação das oferendas, o padre coloca uma gota d'água no vinho. Essa gota simboliza:",
+  o:["A limpeza do cálice antes da consagração","A nossa humanidade unida à divindade de Cristo","As lágrimas de Nossa Senhora aos pés da cruz","Uma regra de higiene herdada da Idade Média"],c:1,
+  e:"A oração que acompanha o gesto pede que, pelo mistério da água e do vinho, participemos da divindade daquele que assumiu a nossa humanidade.",s:"IGMR 142"},
+ {q:"Depois de preparar as oferendas, o padre lava as mãos. Esse rito expressa:",
+  o:["Higiene, porque ele vai tocar a hóstia","O desejo de purificação interior","O fim da Liturgia da Palavra","A bênção da água que será usada no batismo"],c:1,
+  e:"O lavabo é um rito de purificação. O padre reza baixinho pedindo que Deus lave as suas culpas.",s:"IGMR 76"},
+ {q:"Ao passar diante do sacrário onde está o Santíssimo, o gesto indicado é:",
+  o:["Inclinar a cabeça","Fazer o sinal da cruz","Genuflexão, dobrando o joelho direito até o chão","Nenhum gesto, só dentro da Missa"],c:2,
+  e:"A genuflexão com o joelho direito é o gesto de adoração diante do Santíssimo Sacramento. Diante do altar, o gesto é a inclinação.",s:"IGMR 274"},
+ {q:"Pouco antes da consagração, o padre estende as mãos sobre o pão e o vinho. Nesse momento, ele:",
+  o:["Abençoa a assembleia inteira","Invoca o Espírito Santo sobre as oferendas","Pede silêncio para o momento mais importante","Mede o tamanho das hóstias"],c:1,
+  e:"Esse momento se chama epiclese. A Igreja pede que o Espírito Santo santifique os dons para que se tornem o Corpo e o Sangue de Cristo.",s:"IGMR 79c"},
+ {q:"Aos domingos, o Glória não é cantado em dois tempos do ano. Quais?",
+  o:["Advento e Quaresma","Natal e Páscoa","Tempo Comum e Pentecostes","Julho e janeiro, nas férias"],c:0,
+  e:"O Glória é omitido no Advento e na Quaresma, para que ele volte com toda a força no Natal e na Páscoa.",s:"IGMR 53"},
+ {q:"Depois do Cordeiro de Deus, o padre coloca um pedacinho da hóstia dentro do cálice. Isso significa:",
+  o:["Que a hóstia estava grande demais","A unidade do Corpo e do Sangue de Cristo","Uma oferta pelos falecidos da semana","O fim da consagração"],c:1,
+  e:"É a mistura, ou commixtio. O gesto mostra a unidade do Corpo e do Sangue do Senhor na obra da salvação.",s:"IGMR 83"},
+ {q:"No Missal Romano usado hoje no Brasil, quando o padre diz “O Senhor esteja convosco”, o povo responde:",
+  o:["Ele está no meio de nós","E com o teu espírito","Assim seja","Graças a Deus"],c:1,
+  e:"Com a nova tradução do Missal Romano, a resposta passou a ser “E com o teu espírito”, mais fiel ao texto latino. Muita gente ainda responde a forma antiga.",s:"Missal Romano, 3ª edição típica (CNBB)"}
+];
+
+const FRASE_PERFIL = {
+  cat:"Na próxima vez que um catequizando perguntar por que o padre faz esse gesto, a resposta precisa estar pronta, com a fonte na mão.",
+  pais:"Seu filho vai perguntar o porquê de cada gesto. Quem responde com segurança ensina a fé pelo exemplo.",
+  lit:"Quem serve no altar faz os gestos na frente de todos. Saber o porquê de cada um tira o medo de errar.",
+  fiel:"Cada gesto que você faz no domingo tem um motivo. Quando você conhece o motivo, a Missa deixa de passar e começa a acontecer."
+};
+
+let st = {perfil:null, i:0, ans:[]};
+const app = document.getElementById("app");
+const brand = `<div class="brand"><span><svg class="cross" viewBox="0 0 14 14" aria-hidden="true"><path d="M6 0h2v5h6v2H8v7H6V7H0V5h6z" fill="currentColor"/></svg>Viver a Catequese</span><span>Rito Romano</span></div>`;
+
+function intro(){
+  app.innerHTML = brand + `
+  <section class="stack fade">
+    <p class="eyebrow">Teste · 10 perguntas · 3 minutos</p>
+    <h1>Os 10 gestos da Missa que quase ninguém sabe explicar</h1>
+    <p class="lead">Você repete esses gestos todo domingo. O teste mostra quantos deles você consegue explicar, com a resposta certa e a fonte oficial de cada um.</p>
+  </section>
+  <section class="card stack fade">
+    <h3>Pra começar, quem é você na Missa</h3>
+    <div class="profiles">${PERFIS.map(p=>`<button class="opt" data-p="${p.id}">${p.label}</button>`).join("")}</div>
+  </section>
+  <p class="fine">Respostas baseadas na Instrução Geral do Missal Romano (IGMR).</p>`;
+  app.querySelectorAll("[data-p]").forEach(b=>b.onclick=()=>{
+    st.perfil=b.dataset.p; track("Lead",{content_name:"quiz_missa_inicio",perfil:st.perfil}); pergunta();
+  });
+}
+
+function pergunta(){
+  const q = Q[st.i];
+  app.innerHTML = brand + `
+  <div class="stack">
+    <div class="progress">${Q.map((_,k)=>`<i class="${k<=st.i?"on":""}"></i>`).join("")}</div>
+    <div class="meta"><span>Pergunta ${st.i+1} de ${Q.length}</span><span>Escolha uma opção</span></div>
+  </div>
+  <section class="stack fade">
+    <h2>${q.q}</h2>
+    <div class="stack" id="opts">${q.o.map((t,k)=>`<button class="opt" data-k="${k}"><span class="k">${"ABCD"[k]}</span><span>${t}</span></button>`).join("")}</div>
+  </section>`;
+  app.querySelectorAll("[data-k]").forEach(b=>b.onclick=()=>responder(+b.dataset.k));
+  window.scrollTo({top:0});
+}
+
+function responder(k){
+  const q = Q[st.i];
+  st.ans[st.i] = (k===q.c);
+  app.querySelectorAll("[data-k]").forEach(b=>{
+    b.disabled=true;
+    if(+b.dataset.k===k) b.classList.add("sel");
+  });
+  const ultimo = st.i===Q.length-1;
+  setTimeout(()=>{ if(ultimo) resultado(); else { st.i++; pergunta(); } }, 380);
+}
+
+function faixa(n){
+  if(n<=4) return {t:"Você reza a Missa pelo lado de fora",d:"Você participa, responde e faz os gestos. Mas a maioria deles ainda acontece sem que você saiba o porquê. Isso não é falta de fé. Ninguém te explicou a Missa na ordem em que ela acontece."};
+  if(n<=7) return {t:"Você conhece o caminho, e alguns porquês ainda escapam",d:"Você sabe mais do que a maioria. Os erros costumam cair nos gestos rápidos, aqueles que o padre faz em dois segundos e que ninguém para pra explicar."};
+  return {t:"Você sabe muito, e pode ensinar melhor",d:"Poucos acertam tanto. O próximo passo é ter os 32 momentos organizados, com a fonte de cada um, para explicar a Missa inteira a quem ainda está do lado de fora."};
+}
+
+function resultado(){
+  const n = st.ans.filter(Boolean).length, f = faixa(n);
+  track("ViewContent",{content_name:"quiz_missa_resultado",score:n,perfil:st.perfil});
+  const cta = (txt)=>`<a class="btn buy" href="${CHECKOUT_URL}" target="_blank" rel="noopener">${txt}</a>`;
+  app.innerHTML = brand + `
+  <section class="card stack fade">
+    <p class="eyebrow">Seu resultado</p>
+    <div class="score"><span class="n">${n}</span><span class="d">de ${Q.length}</span></div>
+    <h2>${f.t}</h2>
+    <p>${f.d}</p>
+    <ul class="review">${Q.map((q,k)=>`<li><span class="m ${st.ans[k]?"y":"x"}">${st.ans[k]?"✓":"✗"}</span><span>${q.q.split(/[.:]/)[0]}</span></li>`).join("")}</ul>
+  </section>
+
+  <div class="divider">✠</div>
+
+  <section class="stack">
+    <h2>Esses 10 gestos são só uma parte. A Missa tem 32 momentos, e cada um tem um motivo escrito.</h2>
+    <p class="lead">${FRASE_PERFIL[st.perfil]||FRASE_PERFIL.fiel}</p>
+  </section>
+
+  <section class="card stack">
+    <p class="eyebrow">A Missa por Dentro</p>
+    <h3>Guia litúrgico ilustrado do Rito Romano</h3>
+    <ul class="list">
+      <li>Os 32 momentos da Missa explicados na ordem em que acontecem, do primeiro sino ao último Amém</li>
+      <li>Cada gesto com a fonte oficial citada (IGMR, Catecismo e Código de Direito Canônico)</li>
+      <li>Dicionário com 60 termos litúrgicos para consultar no celular, na própria igreja</li>
+      <li>As respostas do povo e as orações de cada parte, para nunca mais ficar em silêncio sem saber o que dizer</li>
+    </ul>
+  </section>
+
+  <section class="price stack">
+    <span class="v">${PRECO}</span>
+    <small>${PARCELAS} · pagamento único · acesso imediato</small>
+    ${cta("Quero entender cada momento da Missa")}
+  </section>
+
+  <section class="twocol">
+    <div class="card mini"><strong>Garantia de 7 dias</strong>Se o guia não servir pra você, o reembolso é integral pela Hotmart, sem precisar explicar o motivo.</div>
+    <div class="card mini"><strong>Você não fica sozinha</strong>Ficou alguma dúvida sobre um rito? Nossa equipe responde pelo WhatsApp.</div>
+  </section>
+
+  <section class="stack">
+    <h3>Feito por quem vive a catequese</h3>
+    <p>O guia nasceu do Viver a Catequese, a partir das perguntas que catequizandos, pais e fiéis faziam depois de cada Missa. Cada explicação foi conferida no texto oficial da Igreja, com o número do parágrafo, para você poder mostrar a fonte. Foi escrito para que qualquer católico consiga acompanhar a Missa sabendo o porquê de cada gesto.</p>
+  </section>
+
+  <section class="price stack">
+    ${cta("Quero o guia por "+PRECO)}
+    <small>PDF para celular, tablet, computador ou impressão</small>
+  </section>
+
+  <button class="btn ghost" id="again">Refazer o teste</button>
+  <p class="fine">Este material não substitui a orientação do seu pároco.</p>`;
+  app.querySelectorAll(".buy").forEach(a=>a.addEventListener("click",()=>track("InitiateCheckout",{value:47,currency:"BRL",content_name:"a_missa_por_dentro"})));
+  document.getElementById("again").onclick=()=>{st={perfil:st.perfil,i:0,ans:[]};pergunta();};
+  window.scrollTo({top:0});
+}
+
+intro();
+</script>
+
+</body>
+</html>
